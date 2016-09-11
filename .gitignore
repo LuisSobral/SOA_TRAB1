@@ -1,11 +1,1 @@
 *.class
-*.xml
-
-/ListarPublicacoesCliente/nbproject/
-/ListarPublicacoesCliente/dist/
-/ListarPublicacoesCliente/build/
-/ListarPublicacoesCliente/xml-resources
-/ListarPublicacoesCliente/src/META-INF
-/ListarPublicacoesService/nbproject/
-/ListarPublicacoesService/build/
-/ListarPublicacoesService/dist/

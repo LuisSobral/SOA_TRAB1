@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS autores (
+	
+	id int NOT NULL AUTO_INCREMENT,
+	nome VARCHAR(255) NOT NULL,
+	nomeCitacao VARCHAR(255) NOT NULL,
+	cpf VARCHAR(14) NOT NULL,
+
+	PRIMARY KEY (id),
+    UNIQUE (cpf)
+);
