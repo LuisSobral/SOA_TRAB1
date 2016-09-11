@@ -31,9 +31,9 @@ public interface ListarPublicacoesApp {
      * @param titulo
      * @return
      *     returns java.util.List<br.soa.Publicacao>
+     * @throws ClassNotFoundException_Exception
      * @throws InstantiationException_Exception
      * @throws IllegalAccessException_Exception
-     * @throws ClassNotFoundException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -58,10 +58,10 @@ public interface ListarPublicacoesApp {
      * @param paginaInicial
      * @return
      *     returns boolean
+     * @throws ClassNotFoundException_Exception
+     * @throws ParseException_Exception
      * @throws InstantiationException_Exception
      * @throws IllegalAccessException_Exception
-     * @throws ParseException_Exception
-     * @throws ClassNotFoundException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
