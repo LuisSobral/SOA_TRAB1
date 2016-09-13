@@ -16,22 +16,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-ListarPublicacoesApp" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/ListarPublicacoesApp"/>
-        <property name="wsdl-ListarPublicacoesApp" location="xml-resources/web-service-references/ListarPublicacoesApp/wsdl/localhost_8080/ListarPublicacoesService/ListarPublicacoesApp.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ListarPublicacoesApp" destdir="${build.generated.dir}/jax-wsCache/ListarPublicacoesApp" wsdl="${wsdl-ListarPublicacoesApp}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/ListarPublicacoesService/ListarPublicacoesApp?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-ListarPublicacoesApp}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/ListarPublicacoesApp"/>
+    <target name="wsimport-client-ServicoApp" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicoApp"/>
+        <property name="wsdl-ServicoApp" location="xml-resources/web-service-references/ServicoApp/wsdl/localhost_8080/Servico/ServicoApp.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicoApp" destdir="${build.generated.dir}/jax-wsCache/ServicoApp" wsdl="${wsdl-ServicoApp}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Servico/ServicoApp?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-ServicoApp}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicoApp"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/ListarPublicacoesApp">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicoApp">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-ListarPublicacoesApp" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/ListarPublicacoesApp"/>
+    <target name="wsimport-client-clean-ServicoApp" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicoApp"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/br/soa"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-ListarPublicacoesApp"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-ServicoApp"/>
 </project>
