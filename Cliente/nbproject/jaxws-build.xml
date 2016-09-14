@@ -33,5 +33,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/ServicoApp"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/br/soa"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-ServicoApp"/>
+    <target name="wsimport-client-calculator" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/calculator"/>
+        <property name="wsdl-calculator" location="xml-resources/web-service-references/calculator/wsdl/soaptest.parasoft.com/calculator.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/calculator" destdir="${build.generated.dir}/jax-wsCache/calculator" wsdl="${wsdl-calculator}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://soaptest.parasoft.com/calculator.wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-calculator}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/calculator"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/calculator">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-calculator" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/calculator"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/parasoft/wsdl/calculator"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ServicoApp, wsimport-client-calculator"/>
 </project>

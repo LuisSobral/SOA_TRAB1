@@ -4,6 +4,9 @@
     <system systemId="http://localhost:8080/ListarPublicacoesService/ListarPublicacoesApp?xsd=1" uri="xml-resources/web-service-references/ListarPublicacoesApp/wsdl/localhost_8080/ListarPublicacoesService/ListarPublicacoesApp.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Service/ListarPublicacoesApp?wsdl" uri="xml-resources/web-service-references/ListarPublicacoesApp_1/wsdl/localhost_8080/Service/ListarPublicacoesApp.wsdl"/>
     <system systemId="http://localhost:8080/Service/ListarPublicacoesApp?xsd=1" uri="xml-resources/web-service-references/ListarPublicacoesApp_1/wsdl/localhost_8080/Service/ListarPublicacoesApp.xsd_1.xsd"/>
+    <system systemId="http://www.dneonline.com/calculator.asmx?op=Subtract" uri="xml-resources/web-service-references/calculator/wsdl/www.dneonline.com/calculator.asmx.op_subtract"/>
+    <system systemId="https://svn.apache.org/repos/asf/airavata/sandbox/xbaya-web/test/Calculator.wsdl" uri="xml-resources/web-service-references/calculator/wsdl/svn.apache.org/repos/asf/airavata/sandbox/xbaya-web/test/Calculator.wsdl"/>
+    <system systemId="http://soaptest.parasoft.com/calculator.wsdl" uri="xml-resources/web-service-references/calculator/wsdl/soaptest.parasoft.com/calculator.wsdl"/>
     <system systemId="http://localhost:8080/Servico/ServicoApp?wsdl" uri="xml-resources/web-service-references/ServicoApp/wsdl/localhost_8080/Servico/ServicoApp.wsdl"/>
     <system systemId="http://localhost:8080/Servico/ServicoApp?xsd=1" uri="xml-resources/web-service-references/ServicoApp/wsdl/localhost_8080/Servico/ServicoApp.xsd_1.xsd"/>
 </catalog>

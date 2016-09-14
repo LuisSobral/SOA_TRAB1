@@ -32,8 +32,8 @@ public interface ServicoApp {
      * @return
      *     returns java.util.List<br.soa.AutorPublicacao>
      * @throws IllegalAccessException_Exception
-     * @throws ClassNotFoundException_Exception
      * @throws InstantiationException_Exception
+     * @throws ClassNotFoundException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -58,10 +58,10 @@ public interface ServicoApp {
      * @param paginaInicial
      * @return
      *     returns boolean
-     * @throws ParseException_Exception
      * @throws IllegalAccessException_Exception
-     * @throws ClassNotFoundException_Exception
      * @throws InstantiationException_Exception
+     * @throws ClassNotFoundException_Exception
+     * @throws ParseException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -94,10 +94,10 @@ public interface ServicoApp {
      * @param paginaInicial
      * @return
      *     returns boolean
-     * @throws ParseException_Exception
      * @throws IllegalAccessException_Exception
-     * @throws ClassNotFoundException_Exception
      * @throws InstantiationException_Exception
+     * @throws ClassNotFoundException_Exception
+     * @throws ParseException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -128,10 +128,10 @@ public interface ServicoApp {
      * @param id
      * @return
      *     returns boolean
-     * @throws ParseException_Exception
      * @throws IllegalAccessException_Exception
-     * @throws ClassNotFoundException_Exception
      * @throws InstantiationException_Exception
+     * @throws ClassNotFoundException_Exception
+     * @throws ParseException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")

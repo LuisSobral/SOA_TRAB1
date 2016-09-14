@@ -70,7 +70,12 @@ public class Cliente {
         br.soa.ServicoApp port = service.getServicoAppPort();
         return port.deletarPublicacao(id);
     }
-
+    
+    private static float subtract(float x, float y) {
+        com.parasoft.wsdl.calculator.Calculator service = new com.parasoft.wsdl.calculator.Calculator();
+        com.parasoft.wsdl.calculator.ICalculator port = service.getICalculator();
+        return port.subtract(x, y);
+    }
     private static void inserePublicacao() throws IllegalAccessException_Exception, ParseException_Exception, InstantiationException_Exception, ClassNotFoundException_Exception {
         
         Scanner ler = new Scanner(System.in);
@@ -86,11 +91,15 @@ public class Cliente {
         System.out.print("Data da Publicacao: ");
         dataPublicacao = ler.next();
         
-        if(inserirPublicacao(titulo,paginaInicial, paginaFinal, dataPublicacao))
-            System.out.println("Publicacao inserida.");
+        if(Math.round(subtract(paginaFinal, paginaInicial)) > 0)
+            if(inserirPublicacao(titulo,paginaInicial, paginaFinal, dataPublicacao))
+                System.out.println("Publicacao inserida.");
+        
+            else
+                System.out.println("Erro ao inserir publicacao");
         
         else
-            System.out.println("Erro ao inserir publicacao");
+            System.out.println("A pagina final não pode ser menor que a pagina inicial");
     }
     
     private static void atualizaPublicacao() throws IllegalAccessException_Exception, ParseException_Exception, InstantiationException_Exception, ClassNotFoundException_Exception {
