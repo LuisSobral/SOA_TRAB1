@@ -4,11 +4,11 @@
 <xsd:import namespace="http://soa.br/" schemaLocation="http://localhost:8080/Servico/ServicoApp?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="inserirPublicacao">
-<part name="parameters" element="tns:inserirPublicacao"/>
+<message name="listarPublicacoes">
+<part name="parameters" element="tns:listarPublicacoes"/>
 </message>
-<message name="inserirPublicacaoResponse">
-<part name="parameters" element="tns:inserirPublicacaoResponse"/>
+<message name="listarPublicacoesResponse">
+<part name="parameters" element="tns:listarPublicacoesResponse"/>
 </message>
 <message name="ClassNotFoundException">
 <part name="fault" element="tns:ClassNotFoundException"/>
@@ -19,14 +19,14 @@
 <message name="IllegalAccessException">
 <part name="fault" element="tns:IllegalAccessException"/>
 </message>
+<message name="inserirPublicacao">
+<part name="parameters" element="tns:inserirPublicacao"/>
+</message>
+<message name="inserirPublicacaoResponse">
+<part name="parameters" element="tns:inserirPublicacaoResponse"/>
+</message>
 <message name="ParseException">
 <part name="fault" element="tns:ParseException"/>
-</message>
-<message name="deletarPublicacao">
-<part name="parameters" element="tns:deletarPublicacao"/>
-</message>
-<message name="deletarPublicacaoResponse">
-<part name="parameters" element="tns:deletarPublicacaoResponse"/>
 </message>
 <message name="atualizarPublicacao">
 <part name="parameters" element="tns:atualizarPublicacao"/>
@@ -34,13 +34,20 @@
 <message name="atualizarPublicacaoResponse">
 <part name="parameters" element="tns:atualizarPublicacaoResponse"/>
 </message>
-<message name="listarPublicacoes">
-<part name="parameters" element="tns:listarPublicacoes"/>
+<message name="deletarPublicacao">
+<part name="parameters" element="tns:deletarPublicacao"/>
 </message>
-<message name="listarPublicacoesResponse">
-<part name="parameters" element="tns:listarPublicacoesResponse"/>
+<message name="deletarPublicacaoResponse">
+<part name="parameters" element="tns:deletarPublicacaoResponse"/>
 </message>
 <portType name="ServicoApp">
+<operation name="listarPublicacoes">
+<input wsam:Action="http://soa.br/ServicoApp/listarPublicacoesRequest" message="tns:listarPublicacoes"/>
+<output wsam:Action="http://soa.br/ServicoApp/listarPublicacoesResponse" message="tns:listarPublicacoesResponse"/>
+<fault message="tns:ClassNotFoundException" name="ClassNotFoundException" wsam:Action="http://soa.br/ServicoApp/listarPublicacoes/Fault/ClassNotFoundException"/>
+<fault message="tns:InstantiationException" name="InstantiationException" wsam:Action="http://soa.br/ServicoApp/listarPublicacoes/Fault/InstantiationException"/>
+<fault message="tns:IllegalAccessException" name="IllegalAccessException" wsam:Action="http://soa.br/ServicoApp/listarPublicacoes/Fault/IllegalAccessException"/>
+</operation>
 <operation name="inserirPublicacao">
 <input wsam:Action="http://soa.br/ServicoApp/inserirPublicacaoRequest" message="tns:inserirPublicacao"/>
 <output wsam:Action="http://soa.br/ServicoApp/inserirPublicacaoResponse" message="tns:inserirPublicacaoResponse"/>
@@ -48,14 +55,6 @@
 <fault message="tns:InstantiationException" name="InstantiationException" wsam:Action="http://soa.br/ServicoApp/inserirPublicacao/Fault/InstantiationException"/>
 <fault message="tns:IllegalAccessException" name="IllegalAccessException" wsam:Action="http://soa.br/ServicoApp/inserirPublicacao/Fault/IllegalAccessException"/>
 <fault message="tns:ParseException" name="ParseException" wsam:Action="http://soa.br/ServicoApp/inserirPublicacao/Fault/ParseException"/>
-</operation>
-<operation name="deletarPublicacao">
-<input wsam:Action="http://soa.br/ServicoApp/deletarPublicacaoRequest" message="tns:deletarPublicacao"/>
-<output wsam:Action="http://soa.br/ServicoApp/deletarPublicacaoResponse" message="tns:deletarPublicacaoResponse"/>
-<fault message="tns:ClassNotFoundException" name="ClassNotFoundException" wsam:Action="http://soa.br/ServicoApp/deletarPublicacao/Fault/ClassNotFoundException"/>
-<fault message="tns:InstantiationException" name="InstantiationException" wsam:Action="http://soa.br/ServicoApp/deletarPublicacao/Fault/InstantiationException"/>
-<fault message="tns:IllegalAccessException" name="IllegalAccessException" wsam:Action="http://soa.br/ServicoApp/deletarPublicacao/Fault/IllegalAccessException"/>
-<fault message="tns:ParseException" name="ParseException" wsam:Action="http://soa.br/ServicoApp/deletarPublicacao/Fault/ParseException"/>
 </operation>
 <operation name="atualizarPublicacao">
 <input wsam:Action="http://soa.br/ServicoApp/atualizarPublicacaoRequest" message="tns:atualizarPublicacao"/>
@@ -65,17 +64,18 @@
 <fault message="tns:IllegalAccessException" name="IllegalAccessException" wsam:Action="http://soa.br/ServicoApp/atualizarPublicacao/Fault/IllegalAccessException"/>
 <fault message="tns:ParseException" name="ParseException" wsam:Action="http://soa.br/ServicoApp/atualizarPublicacao/Fault/ParseException"/>
 </operation>
-<operation name="listarPublicacoes">
-<input wsam:Action="http://soa.br/ServicoApp/listarPublicacoesRequest" message="tns:listarPublicacoes"/>
-<output wsam:Action="http://soa.br/ServicoApp/listarPublicacoesResponse" message="tns:listarPublicacoesResponse"/>
-<fault message="tns:ClassNotFoundException" name="ClassNotFoundException" wsam:Action="http://soa.br/ServicoApp/listarPublicacoes/Fault/ClassNotFoundException"/>
-<fault message="tns:InstantiationException" name="InstantiationException" wsam:Action="http://soa.br/ServicoApp/listarPublicacoes/Fault/InstantiationException"/>
-<fault message="tns:IllegalAccessException" name="IllegalAccessException" wsam:Action="http://soa.br/ServicoApp/listarPublicacoes/Fault/IllegalAccessException"/>
+<operation name="deletarPublicacao">
+<input wsam:Action="http://soa.br/ServicoApp/deletarPublicacaoRequest" message="tns:deletarPublicacao"/>
+<output wsam:Action="http://soa.br/ServicoApp/deletarPublicacaoResponse" message="tns:deletarPublicacaoResponse"/>
+<fault message="tns:ClassNotFoundException" name="ClassNotFoundException" wsam:Action="http://soa.br/ServicoApp/deletarPublicacao/Fault/ClassNotFoundException"/>
+<fault message="tns:InstantiationException" name="InstantiationException" wsam:Action="http://soa.br/ServicoApp/deletarPublicacao/Fault/InstantiationException"/>
+<fault message="tns:IllegalAccessException" name="IllegalAccessException" wsam:Action="http://soa.br/ServicoApp/deletarPublicacao/Fault/IllegalAccessException"/>
+<fault message="tns:ParseException" name="ParseException" wsam:Action="http://soa.br/ServicoApp/deletarPublicacao/Fault/ParseException"/>
 </operation>
 </portType>
 <binding name="ServicoAppPortBinding" type="tns:ServicoApp">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="inserirPublicacao">
+<operation name="listarPublicacoes">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -92,11 +92,8 @@
 <fault name="IllegalAccessException">
 <soap:fault name="IllegalAccessException" use="literal"/>
 </fault>
-<fault name="ParseException">
-<soap:fault name="ParseException" use="literal"/>
-</fault>
 </operation>
-<operation name="deletarPublicacao">
+<operation name="inserirPublicacao">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -138,7 +135,7 @@
 <soap:fault name="ParseException" use="literal"/>
 </fault>
 </operation>
-<operation name="listarPublicacoes">
+<operation name="deletarPublicacao">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -154,6 +151,9 @@
 </fault>
 <fault name="IllegalAccessException">
 <soap:fault name="IllegalAccessException" use="literal"/>
+</fault>
+<fault name="ParseException">
+<soap:fault name="ParseException" use="literal"/>
 </fault>
 </operation>
 </binding>

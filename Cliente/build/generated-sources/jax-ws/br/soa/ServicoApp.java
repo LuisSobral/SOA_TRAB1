@@ -28,6 +28,30 @@ public interface ServicoApp {
 
     /**
      * 
+     * @param titulo
+     * @return
+     *     returns java.util.List<br.soa.AutorPublicacao>
+     * @throws IllegalAccessException_Exception
+     * @throws ClassNotFoundException_Exception
+     * @throws InstantiationException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarPublicacoes", targetNamespace = "http://soa.br/", className = "br.soa.ListarPublicacoes")
+    @ResponseWrapper(localName = "listarPublicacoesResponse", targetNamespace = "http://soa.br/", className = "br.soa.ListarPublicacoesResponse")
+    @Action(input = "http://soa.br/ServicoApp/listarPublicacoesRequest", output = "http://soa.br/ServicoApp/listarPublicacoesResponse", fault = {
+        @FaultAction(className = ClassNotFoundException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/ClassNotFoundException"),
+        @FaultAction(className = InstantiationException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/InstantiationException"),
+        @FaultAction(className = IllegalAccessException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/IllegalAccessException")
+    })
+    public List<AutorPublicacao> listarPublicacoes(
+        @WebParam(name = "titulo", targetNamespace = "")
+        String titulo)
+        throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception
+    ;
+
+    /**
+     * 
      * @param paginaFinal
      * @param titulo
      * @param dataPublicacao
@@ -58,32 +82,6 @@ public interface ServicoApp {
         int paginaFinal,
         @WebParam(name = "dataPublicacao", targetNamespace = "")
         String dataPublicacao)
-        throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception, ParseException_Exception
-    ;
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns boolean
-     * @throws ParseException_Exception
-     * @throws IllegalAccessException_Exception
-     * @throws ClassNotFoundException_Exception
-     * @throws InstantiationException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "deletarPublicacao", targetNamespace = "http://soa.br/", className = "br.soa.DeletarPublicacao")
-    @ResponseWrapper(localName = "deletarPublicacaoResponse", targetNamespace = "http://soa.br/", className = "br.soa.DeletarPublicacaoResponse")
-    @Action(input = "http://soa.br/ServicoApp/deletarPublicacaoRequest", output = "http://soa.br/ServicoApp/deletarPublicacaoResponse", fault = {
-        @FaultAction(className = ClassNotFoundException_Exception.class, value = "http://soa.br/ServicoApp/deletarPublicacao/Fault/ClassNotFoundException"),
-        @FaultAction(className = InstantiationException_Exception.class, value = "http://soa.br/ServicoApp/deletarPublicacao/Fault/InstantiationException"),
-        @FaultAction(className = IllegalAccessException_Exception.class, value = "http://soa.br/ServicoApp/deletarPublicacao/Fault/IllegalAccessException"),
-        @FaultAction(className = ParseException_Exception.class, value = "http://soa.br/ServicoApp/deletarPublicacao/Fault/ParseException")
-    })
-    public boolean deletarPublicacao(
-        @WebParam(name = "id", targetNamespace = "")
-        int id)
         throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception, ParseException_Exception
     ;
 
@@ -127,26 +125,28 @@ public interface ServicoApp {
 
     /**
      * 
-     * @param titulo
+     * @param id
      * @return
-     *     returns java.util.List<br.soa.AutorPublicacao>
+     *     returns boolean
+     * @throws ParseException_Exception
      * @throws IllegalAccessException_Exception
      * @throws ClassNotFoundException_Exception
      * @throws InstantiationException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarPublicacoes", targetNamespace = "http://soa.br/", className = "br.soa.ListarPublicacoes")
-    @ResponseWrapper(localName = "listarPublicacoesResponse", targetNamespace = "http://soa.br/", className = "br.soa.ListarPublicacoesResponse")
-    @Action(input = "http://soa.br/ServicoApp/listarPublicacoesRequest", output = "http://soa.br/ServicoApp/listarPublicacoesResponse", fault = {
-        @FaultAction(className = ClassNotFoundException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/ClassNotFoundException"),
-        @FaultAction(className = InstantiationException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/InstantiationException"),
-        @FaultAction(className = IllegalAccessException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/IllegalAccessException")
+    @RequestWrapper(localName = "deletarPublicacao", targetNamespace = "http://soa.br/", className = "br.soa.DeletarPublicacao")
+    @ResponseWrapper(localName = "deletarPublicacaoResponse", targetNamespace = "http://soa.br/", className = "br.soa.DeletarPublicacaoResponse")
+    @Action(input = "http://soa.br/ServicoApp/deletarPublicacaoRequest", output = "http://soa.br/ServicoApp/deletarPublicacaoResponse", fault = {
+        @FaultAction(className = ClassNotFoundException_Exception.class, value = "http://soa.br/ServicoApp/deletarPublicacao/Fault/ClassNotFoundException"),
+        @FaultAction(className = InstantiationException_Exception.class, value = "http://soa.br/ServicoApp/deletarPublicacao/Fault/InstantiationException"),
+        @FaultAction(className = IllegalAccessException_Exception.class, value = "http://soa.br/ServicoApp/deletarPublicacao/Fault/IllegalAccessException"),
+        @FaultAction(className = ParseException_Exception.class, value = "http://soa.br/ServicoApp/deletarPublicacao/Fault/ParseException")
     })
-    public List<AutorPublicacao> listarPublicacoes(
-        @WebParam(name = "titulo", targetNamespace = "")
-        String titulo)
-        throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception
+    public boolean deletarPublicacao(
+        @WebParam(name = "id", targetNamespace = "")
+        int id)
+        throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception, ParseException_Exception
     ;
 
 }
