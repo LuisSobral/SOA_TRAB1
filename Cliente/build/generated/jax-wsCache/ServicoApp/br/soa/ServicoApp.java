@@ -28,65 +28,6 @@ public interface ServicoApp {
 
     /**
      * 
-     * @param titulo
-     * @return
-     *     returns java.util.List<br.soa.AutorPublicacao>
-     * @throws IllegalAccessException_Exception
-     * @throws InstantiationException_Exception
-     * @throws ClassNotFoundException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarPublicacoes", targetNamespace = "http://soa.br/", className = "br.soa.ListarPublicacoes")
-    @ResponseWrapper(localName = "listarPublicacoesResponse", targetNamespace = "http://soa.br/", className = "br.soa.ListarPublicacoesResponse")
-    @Action(input = "http://soa.br/ServicoApp/listarPublicacoesRequest", output = "http://soa.br/ServicoApp/listarPublicacoesResponse", fault = {
-        @FaultAction(className = ClassNotFoundException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/ClassNotFoundException"),
-        @FaultAction(className = InstantiationException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/InstantiationException"),
-        @FaultAction(className = IllegalAccessException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/IllegalAccessException")
-    })
-    public List<AutorPublicacao> listarPublicacoes(
-        @WebParam(name = "titulo", targetNamespace = "")
-        String titulo)
-        throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception
-    ;
-
-    /**
-     * 
-     * @param paginaFinal
-     * @param titulo
-     * @param dataPublicacao
-     * @param paginaInicial
-     * @return
-     *     returns boolean
-     * @throws IllegalAccessException_Exception
-     * @throws InstantiationException_Exception
-     * @throws ClassNotFoundException_Exception
-     * @throws ParseException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "inserirPublicacao", targetNamespace = "http://soa.br/", className = "br.soa.InserirPublicacao")
-    @ResponseWrapper(localName = "inserirPublicacaoResponse", targetNamespace = "http://soa.br/", className = "br.soa.InserirPublicacaoResponse")
-    @Action(input = "http://soa.br/ServicoApp/inserirPublicacaoRequest", output = "http://soa.br/ServicoApp/inserirPublicacaoResponse", fault = {
-        @FaultAction(className = ClassNotFoundException_Exception.class, value = "http://soa.br/ServicoApp/inserirPublicacao/Fault/ClassNotFoundException"),
-        @FaultAction(className = InstantiationException_Exception.class, value = "http://soa.br/ServicoApp/inserirPublicacao/Fault/InstantiationException"),
-        @FaultAction(className = IllegalAccessException_Exception.class, value = "http://soa.br/ServicoApp/inserirPublicacao/Fault/IllegalAccessException"),
-        @FaultAction(className = ParseException_Exception.class, value = "http://soa.br/ServicoApp/inserirPublicacao/Fault/ParseException")
-    })
-    public boolean inserirPublicacao(
-        @WebParam(name = "titulo", targetNamespace = "")
-        String titulo,
-        @WebParam(name = "paginaInicial", targetNamespace = "")
-        int paginaInicial,
-        @WebParam(name = "paginaFinal", targetNamespace = "")
-        int paginaFinal,
-        @WebParam(name = "dataPublicacao", targetNamespace = "")
-        String dataPublicacao)
-        throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception, ParseException_Exception
-    ;
-
-    /**
-     * 
      * @param paginaFinal
      * @param titulo
      * @param dataPublicacao
@@ -94,10 +35,10 @@ public interface ServicoApp {
      * @param paginaInicial
      * @return
      *     returns boolean
-     * @throws IllegalAccessException_Exception
-     * @throws InstantiationException_Exception
      * @throws ClassNotFoundException_Exception
      * @throws ParseException_Exception
+     * @throws IllegalAccessException_Exception
+     * @throws InstantiationException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -128,10 +69,10 @@ public interface ServicoApp {
      * @param id
      * @return
      *     returns boolean
-     * @throws IllegalAccessException_Exception
-     * @throws InstantiationException_Exception
      * @throws ClassNotFoundException_Exception
      * @throws ParseException_Exception
+     * @throws IllegalAccessException_Exception
+     * @throws InstantiationException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -146,6 +87,65 @@ public interface ServicoApp {
     public boolean deletarPublicacao(
         @WebParam(name = "id", targetNamespace = "")
         int id)
+        throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception, ParseException_Exception
+    ;
+
+    /**
+     * 
+     * @param titulo
+     * @return
+     *     returns java.util.List<br.soa.AutorPublicacao>
+     * @throws ClassNotFoundException_Exception
+     * @throws IllegalAccessException_Exception
+     * @throws InstantiationException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarPublicacoes", targetNamespace = "http://soa.br/", className = "br.soa.ListarPublicacoes")
+    @ResponseWrapper(localName = "listarPublicacoesResponse", targetNamespace = "http://soa.br/", className = "br.soa.ListarPublicacoesResponse")
+    @Action(input = "http://soa.br/ServicoApp/listarPublicacoesRequest", output = "http://soa.br/ServicoApp/listarPublicacoesResponse", fault = {
+        @FaultAction(className = ClassNotFoundException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/ClassNotFoundException"),
+        @FaultAction(className = InstantiationException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/InstantiationException"),
+        @FaultAction(className = IllegalAccessException_Exception.class, value = "http://soa.br/ServicoApp/listarPublicacoes/Fault/IllegalAccessException")
+    })
+    public List<AutorPublicacao> listarPublicacoes(
+        @WebParam(name = "titulo", targetNamespace = "")
+        String titulo)
+        throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception
+    ;
+
+    /**
+     * 
+     * @param paginaFinal
+     * @param titulo
+     * @param dataPublicacao
+     * @param paginaInicial
+     * @return
+     *     returns boolean
+     * @throws ClassNotFoundException_Exception
+     * @throws ParseException_Exception
+     * @throws IllegalAccessException_Exception
+     * @throws InstantiationException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "inserirPublicacao", targetNamespace = "http://soa.br/", className = "br.soa.InserirPublicacao")
+    @ResponseWrapper(localName = "inserirPublicacaoResponse", targetNamespace = "http://soa.br/", className = "br.soa.InserirPublicacaoResponse")
+    @Action(input = "http://soa.br/ServicoApp/inserirPublicacaoRequest", output = "http://soa.br/ServicoApp/inserirPublicacaoResponse", fault = {
+        @FaultAction(className = ClassNotFoundException_Exception.class, value = "http://soa.br/ServicoApp/inserirPublicacao/Fault/ClassNotFoundException"),
+        @FaultAction(className = InstantiationException_Exception.class, value = "http://soa.br/ServicoApp/inserirPublicacao/Fault/InstantiationException"),
+        @FaultAction(className = IllegalAccessException_Exception.class, value = "http://soa.br/ServicoApp/inserirPublicacao/Fault/IllegalAccessException"),
+        @FaultAction(className = ParseException_Exception.class, value = "http://soa.br/ServicoApp/inserirPublicacao/Fault/ParseException")
+    })
+    public boolean inserirPublicacao(
+        @WebParam(name = "titulo", targetNamespace = "")
+        String titulo,
+        @WebParam(name = "paginaInicial", targetNamespace = "")
+        int paginaInicial,
+        @WebParam(name = "paginaFinal", targetNamespace = "")
+        int paginaFinal,
+        @WebParam(name = "dataPublicacao", targetNamespace = "")
+        String dataPublicacao)
         throws ClassNotFoundException_Exception, IllegalAccessException_Exception, InstantiationException_Exception, ParseException_Exception
     ;
 
